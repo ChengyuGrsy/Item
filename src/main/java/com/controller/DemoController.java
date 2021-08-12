@@ -2,6 +2,7 @@ package com.controller;
 
 import com.Run.ConcurrentTestRun;
 import com.entity.Member;
+import com.util.SpringContextUtil;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedList;
@@ -126,5 +127,11 @@ public class DemoController {
         for(Member m:list){
             System.out.println(m.toString());
         }
+    }
+
+    @GetMapping("/getBean")
+    public void getBean(){
+        Member member=(Member) SpringContextUtil.getBean("mM");
+        System.out.println(member.toString());
     }
 }
